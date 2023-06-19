@@ -1,0 +1,22 @@
+Acessando nosso pods = kubectl port-forward pod/nginx 9000:80
+Vizualizando pods = kubectl get pods
+Criando pods = kubectl apply -f <nome do arquivo do pod, exemplo pod.yaml>
+Deletando pods = kubectl delete pods <nome do pod>
+
+
+#Como podemos garantir que nosso pods estejam sempre rodando?, iremos utilizar o objeto REPLICA-SET, ele garente que meus pods sempre estejam
+executando, indepente se cair ou não, alem de gerenciar a quantidade de pods que iremos ter.
+
+#Vantagens = Caso o pod cair o replica set monitora, e cria outro pod.
+
+
+#HPA - Horizontal POD autoscaller
+ 1 - Responsavel por criar novos pods caso os recursos dos pods estejam sendo bastante utilizados.
+ 2 - Podemos dizer o minimo e maximo de pod que a gente tera rodando, exemplo minimo = 2, maximo = 10
+
+#Deployments = Gerencia o Replicaset, ele cria replicaset que cria pods.
+
+#Service = Faz o balanceamento de carga, resolução por IP ou por DNS.
+Tipos de service = IP -> Interno(Só vai ser encontrado dentro do nosso sistema)
+NODEPORT = Abre uma porta, exemplo 33999, vamos plugar o service nessa porta.
+Load Balancer = Vai gerar um IP externo, para que conseguirmos acessar fora do nosso sistema, qualquer pessoa vai acessar o cluster.
